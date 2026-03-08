@@ -40,20 +40,20 @@ The caching layer intercepts incoming queries:
 
 ```mermaid
 flowchart TD
-    User([User Query]) --> API[FastAPI Endpoint POST /query]
+    User([User Query]) --> API[FastAPI Endpoint<br>POST /query]
     API --> Embed[all-MiniLM-L6-v2]
     
     subgraph "Custom Semantic Cache"
-    Embed --> ClusterCalc[Determine Dominant GMM Cluster]
-    ClusterCalc --> CheckCache{Check Bucket for Threshold > 0.75}
+    Embed --> ClusterCalc[Determine Dominant<br>GMM Cluster]
+    ClusterCalc --> CheckCache{Check Bucket for<br>Threshold > 0.75}
     end
     
-    CheckCache -- "Cache Hit (Fast Return)" --> ReturnRes
-    CheckCache -- "Cache Miss" --> DB[(FAISS Vector DB)]
+    CheckCache -- "Cache Hit<br>(Fast Return)" --> ReturnRes
+    CheckCache -- "Cache Miss" --> DB[(FAISS Vector<br>Database)]
     
-    DB --> ExecSearch[Find Top-K Similar News Docs]
-    ExecSearch --> StoreCache[Store Query in Cache Bucket]
-    StoreCache --> ReturnRes([Return Results JSON])
+    DB --> ExecSearch[Find Top-K Similar<br>News Docs]
+    ExecSearch --> StoreCache[Store Query in<br>Cache Bucket]
+    StoreCache --> ReturnRes([Return Results<br>JSON Format])
 
     style CheckCache fill:#a2d149,stroke:#333,stroke-width:2px;
     style DB fill:#4a90e2,stroke:#333,stroke-width:2px;
