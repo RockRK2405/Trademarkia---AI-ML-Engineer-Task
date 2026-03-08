@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  semantic-search-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount data folder so container doesn't have to re-download the dataset
+      # if restarted, unless you want it baked into the image.
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
