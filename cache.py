@@ -19,13 +19,13 @@ class SemanticCache:
     number of clusters, assuming queries are somewhat evenly distributed.
     """
     
-    def __init__(self, similarity_threshold=0.75):
+    def __init__(self, similarity_threshold=0.62):
         """
         Args:
             similarity_threshold (float): The tunable threshold.
                 - Higher (e.g., 0.95): Lower hit rate, but hits are guaranteed to be extremely relevant.
-                - Lower (e.g., 0.70): Higher hit rate, but risks returning irrelevant answers for loosely related queries.
-                0.75 serves as a good default heuristic for SentenceTransformers.
+                - Lower (e.g., 0.60): Higher hit rate, but risks returning irrelevant answers for loosely related queries.
+                0.62 serves as a good threshold to capture heavy rephrasing variations.
         """
         self.similarity_threshold = similarity_threshold
         # Cache storage: dictionary where keys are cluster IDs, values are lists of cached items

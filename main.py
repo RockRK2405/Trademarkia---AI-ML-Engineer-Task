@@ -74,10 +74,10 @@ def load_resources():
             state.gmm_model = pickle.load(f)
 
     # 5. Initialize Cache. 
-    # Similarity threshold set to 0.75 as a heuristic block for related semantics
+    # Similarity threshold set to 0.62 to capture the variance in heavily rephrased manual queries
     if not state.cache:
         logger.info("Initializing semantic cache...")
-        state.cache = SemanticCache(similarity_threshold=0.75)
+        state.cache = SemanticCache(similarity_threshold=0.62)
         
     logger.info("All resources loaded successfully.")
 
