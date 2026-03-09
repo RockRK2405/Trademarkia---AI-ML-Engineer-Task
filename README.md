@@ -10,14 +10,14 @@ This repository contains a fully containerized, lightweight **Semantic Search sy
 
 ---
 
-## 🎯 Project Aim
+##  Project Aim
 Traditional exact-match caching systems break the second a user types `"What's the best motorcycle?"` instead of `"Which motorbike should I buy?"`. 
 
 The aim of this project is to build a system from first principles (no Redis or Memcached) that understands **semantic intent**. By clustering the entire newsgroup corpus into fuzzy boundaries and leveraging a Vector Database (`FAISS`), the system can return highly relevant cached results in a fraction of the time by dynamically adjusting hit thresholds based on topic buckets.
 
 ---
 
-## 🧠 Methodology & Architecture
+##  Methodology & Architecture
 
 The system avoids the standard $O(N)$ linear cache scan bottleneck by grouping past queries into $K$ distinct topic buckets. When a new query arrives, we only search for similar past queries inside its *dominant cluster bucket*, achieving sub-linear $\sim O(N/K)$ cache lookup times.
 
@@ -61,7 +61,7 @@ flowchart TD
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 You can run this project either directly via Python or as a Docker container.
 
@@ -138,7 +138,7 @@ Resets all internal buckets and metrics.
 
 ---
 
-## 🧪 Testing the Pipeline
+##  Testing the Pipeline
 An automated test script is provided to verify the semantic retrieval logic and threshold tunings. 
 Run it via another terminal window:
 ```bash
