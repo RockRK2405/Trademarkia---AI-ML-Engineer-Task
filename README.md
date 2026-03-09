@@ -98,7 +98,7 @@ docker-compose up --build
 
 ---
 
-## 💻 API Endpoints & Usage
+##  API Endpoints & Usage
 
 Once running, navigate to **[`http://localhost:8000/docs`](http://localhost:8000/docs)** to use the interactive Swagger UI.
 
